@@ -23,7 +23,7 @@ public class UserController {
 	@GetMapping("/user-form")
 	public String showUserForm(Model model) {
 		model.addAttribute("user", new UserEntity());
-		return "user-form"; // view name
+		return "index"; // view name
 	}
 
 	@PostMapping("/save-user")
