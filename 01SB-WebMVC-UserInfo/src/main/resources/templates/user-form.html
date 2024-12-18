@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Save user</title>
+<style>
+body {
+	font-family: cursive;
+	background-color: lightgray;
+	font-weight: bold;
+}
+
+div {
+	padding: 4em;
+	max-width: 45%;
+	border-radius: 70px;
+	box-shadow: 10px 10px 5px rgb(128, 135, 137);
+}
+
+.build {
+	margin: auto;
+	margin-top: 60px;
+	background-image: linear-gradient(rgb(238, 163, 243), rgb(121, 209, 243));
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 20em;
+}
+
+.input {
+	margin: 10px;
+	/* width: 50%; */
+	padding: 4px;
+}
+
+.date {
+	margin: 10px;
+	width: 84%;
+	padding: 4px;
+}
+
+.btn {
+	margin-top: 30px;
+	margin-left: 100px;
+	width: 35%;
+	padding: 9px;
+	border-radius: 25px;
+	color: whitesmoke;
+	border: 2px solid black;
+	background-image: -webkit-linear-gradient(30deg, black 50%, transparent 50%);
+	background-image: linear-gradient(30deg, black 50%, transparent 50%);
+	background-size: 500px;
+	background-repeat: no-repeat;
+	background-position: 0%;
+	-webkit-transition: background 300ms ease-in-out;
+	transition: background 300ms ease-in-out;
+}
+
+.btn:hover {
+	background-position: 100%;
+	color: black;
+	cursor: pointer;
+}
+
+a {
+	margin-left: 35%;
+}
+
+a:hover {
+	color: white;
+	text-decoration: none;
+	border-radius: 20px;
+	background-color: blue;
+	padding: 3px;
+}
+
+h2 {
+	position: absolute;
+	margin-bottom: 27%;
+}
+</style>
+</head>
+
+<body>
+
+	<div class="build">
+		<h2>Add User</h2>
+		
+	
+		
+		<form th:action="@{/save-user}" method="post" th:object="${user}">
+			<table>
+				<tr>
+					<td>Name :</td>
+					<td><input type="text" th:field="*{userName}" required /><br /></td>
+				</tr>
+
+				<tr>
+					<td>Email :</td>
+					<td><input type="email" th:field="*{email}" required /><br /></td>
+				</tr>
+				<tr>
+					<td>Gender :</td>
+					<td><input type="text" th:field="*{gender}" required /><br /></td>
+				</tr>
+
+				<tr>
+					<td>Contact :</td>
+					<td><input type="number" th:field="*{contact}" required /><br /></td>
+				</tr>
+			</table>
+			<input class="btn" style="font-family: cursive; font-weight: bold;"
+				type="submit" value="save">
+
+			<hr>
+			<a href="/users"> View All Users</a>
+			
+		</form>
+	</div>
+</body>
+
+</html>

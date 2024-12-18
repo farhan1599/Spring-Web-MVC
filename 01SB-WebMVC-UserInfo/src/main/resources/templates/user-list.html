@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Users</title>
+<style>
+body {
+	font-family: cursive;
+	background-color: lightgray;
+	font-weight: bold;
+}
+
+div {
+	padding: 4em;
+	max-width: 45%;
+	border-radius: 70px;
+	box-shadow: 10px 10px 5px rgb(128, 135, 137);
+}
+
+.build {
+	margin: auto;
+	margin-top: 60px;
+	background-image: linear-gradient(rgb(238, 163, 243), rgb(121, 209, 243));
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: center;
+	justify-content: center;
+	height: 20em;
+}
+
+#link {
+	margin: 2em;
+}
+
+#link:hover {
+	color: white;
+	text-decoration: none;
+	border-radius: 20px;
+	background-color: blue;
+	padding: 3px;
+}
+
+h2 {
+	position: absolute;
+	margin-bottom: 25%;
+}
+
+table {
+	height: 20vh;
+	width: 50vw;
+}
+
+th {
+	color: blue;
+}
+
+td {
+	text-align: center;
+	font-family:TimesNewRoman;
+	font-weight:normal;
+}
+</style>
+
+</head>
+
+<body>
+
+	<div class="build">
+		<h2>User List</h2>
+
+		<hr>
+
+
+		<table border="1">
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Gender</th>
+				<th>Contact</th>
+			</tr>
+			<tr th:each="user : ${users}">
+				<td th:text="${user.id}"></td>
+				<td th:text="${user.UserName}"></td>
+				<td th:text="${user.email}"></td>
+				<td th:text="${user.gender}"></td>
+				<td th:text="${user.contact}"></td>
+			</tr>
+
+		</table>
+		<a id="link" href="/user-form">Add New User</a>
+
+	</div>
+</body>
+
+</html>
